@@ -9,6 +9,20 @@
 #include "orttraining/training_api/include/training_session.h"
 #include "core/session/abi_session_options_impl.h"
 
+namespace {
+
+std::vector<std::shared_ptr<onnxruntime::IExecutionProvider>> CreateProviders(
+    const std::vector<std::shared_ptr<onnxruntime::IExecutionProviderFactory>>& provider_factories) {
+  std::vector<std::shared_ptr<onnxruntime::IExecutionProvider>> execution_providers;
+  for (const auto& factory : provider_factories) {
+    execution_providers.emplace_back(std::move(factory->CreateProvider()));
+  }
+
+  return execution_providers;
+}
+
+}  // namespace
+
 ORT_API_STATUS_IMPL(OrtApis::CreateTrainingSession, _In_ const OrtEnv* env, _In_ const OrtSessionOptions* options,
                     _Inout_ OrtCheckpointState* checkpoint_state, _Outptr_ OrtTrainingSession** out) {
   API_IMPL_BEGIN
@@ -21,6 +35,7 @@ ORT_API_STATUS_IMPL(OrtApis::CreateTrainingSession, _In_ const OrtEnv* env, _In_
     train_sess = std::make_unique<onnxruntime::training::api::TrainingSession>(
         env->GetEnvironment(),
         options == nullptr ? onnxruntime::SessionOptions() : options->value,
+        CreateProviders(options->provider_factories),
         chkpt_state->module_checkpoint_state.named_parameters);
 
     *out = reinterpret_cast<OrtTrainingSession*>(train_sess.release());
