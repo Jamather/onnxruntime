@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Profile the execution of a simple model &#8212; ONNX Runtime 1.13.0 documentation</title>
+    <title>Profile the execution of a simple model &#8212; ONNX Runtime 1.14.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../static/alabaster.css" />
     <link rel="stylesheet" type="text/css" href="../static/graphviz.css" />
@@ -97,7 +97,7 @@ before running the predictions.</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">prof_file</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>onnxruntime_profile__2022-10-13_20-48-44.json
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>onnxruntime_profile__2022-11-04_02-07-24.json
 </pre></div>
 </div>
 <p>The results are stored un a file in JSON format.
@@ -113,23 +113,23 @@ Let’s see what it contains.</p>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[{&#39;args&#39;: {},
   &#39;cat&#39;: &#39;Session&#39;,
-  &#39;dur&#39;: 72,
+  &#39;dur&#39;: 81,
   &#39;name&#39;: &#39;model_loading_array&#39;,
   &#39;ph&#39;: &#39;X&#39;,
-  &#39;pid&#39;: 3099,
-  &#39;tid&#39;: 3099,
-  &#39;ts&#39;: 2},
+  &#39;pid&#39;: 2708,
+  &#39;tid&#39;: 2708,
+  &#39;ts&#39;: 1},
  {&#39;args&#39;: {},
   &#39;cat&#39;: &#39;Session&#39;,
-  &#39;dur&#39;: 294,
+  &#39;dur&#39;: 298,
   &#39;name&#39;: &#39;session_initialization&#39;,
   &#39;ph&#39;: &#39;X&#39;,
-  &#39;pid&#39;: 3099,
-  &#39;tid&#39;: 3099,
-  &#39;ts&#39;: 87}]
+  &#39;pid&#39;: 2708,
+  &#39;tid&#39;: 2708,
+  &#39;ts&#39;: 98}]
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.005 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.007 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-profiling-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../downloads/cfe61aca1f0a89486c7024466ea500fd/plot_profiling.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_profiling.py</span></code></a></p>
@@ -204,7 +204,7 @@ Let’s see what it contains.</p>
       &copy;2018-2021, Microsoft.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
